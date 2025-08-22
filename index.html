@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For my mommaaaa</title>
+    <style>
+        body {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            text-align: center;
+            background-color: #ff1493; /* Bright pink */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1, p, button {
+            font-weight: bold;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .btn {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
+        .btn:hover {
+            transform: scale(1.1);
+        }
+        .yes {
+            background-color: green;
+            color: white;
+        }
+        .no {
+            background-color: red;
+            color: white;
+        }
+        .try-again {
+            font-size: 1.5em;
+            color: white;
+            margin-top: 20px;
+            display: none;
+        }
+        .gif-container {
+            margin-top: 20px;
+        }
+        .gif-container img {
+            width: 200px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Will you be my Valentine, Momma? 😘💖</h1>
+
+    <div class="buttons">
+        <button class="btn yes" id="yesBtn" onclick="yesClicked()">Yes</button>
+        <button class="btn no" id="noBtn" onclick="noClicked()">No</button>
+    </div>
+
+    <p class="try-again" id="tryAgainText">Try again!</p>
+
+    <div class="gif-container">
+        <img src="https://media.giphy.com/media/c76IJLufpNwSULPk77/giphy.gif" alt="Cute Love GIF">
+    </div>
+
+    <script>
+        let yesBtn = document.getElementById("yesBtn");
+        let noBtn = document.getElementById("noBtn");
+        let tryAgainText = document.getElementById("tryAgainText");
+        let yesSize = 1.5; 
+
+        function yesClicked() {
+            document.body.innerHTML = `
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; background-color: #ff1493; font-family: 'Comic Sans MS', cursive, sans-serif; font-weight: bold;">
+                    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTd3N3V6bWEwYXB3ZmdnOGdzNThvb2x2MTN5NW00Z3M4ZWo5aTJqeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d9eL06htb5Vks/giphy.gif" style="width: 300px; border-radius: 10px;">
+                    <h1 style="color: white; font-size: 3em; margin-top: 20px;">Yay! 💖</h1>
+                </div>
+            `;
+        }
+
+        function noClicked() {
+            tryAgainText.style.display = "block"; // Show "Try again"
+            yesSize += 1; // Increase Yes button size
+            yesBtn.style.fontSize = yesSize + "em";
+            yesBtn.style.padding = (yesSize * 10) + "px " + (yesSize * 20) + "px";
+        }
+    </script>
+
+</body>
+</html>
